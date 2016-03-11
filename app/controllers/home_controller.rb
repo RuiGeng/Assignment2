@@ -8,7 +8,10 @@ class HomeController < ApplicationController
     if current_user.admin != true
         flash[:notice] = "You are not adminstrator"
     else
-        flash[:notice] = "You are adminstrator"
+      respond_to do |format|
+        #format.html { redirect_to '/users/index', notice: 'You are adminstrator.' }
+        #format.json { render :index, status: :created, location: @user }
+      end
     end
   end
 end

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # get 'home/index'
 
   get 'home/show'
-
+  
   # resources :users
   
   root to: "home#index"
