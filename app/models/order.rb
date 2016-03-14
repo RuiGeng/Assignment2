@@ -16,6 +16,4 @@ class Order < ActiveRecord::Base
   validates :province, presence: true, length: { maximum: 25 }
   validates :city, presence: true, length: { maximum: 25 }
   validates :postalCode, presence: true, format: { with: canadian_postal_code, message: "Please Enter a Valid Postal Code" }
-  t.decimal :subtotal
-  t.decimal :total
 end
