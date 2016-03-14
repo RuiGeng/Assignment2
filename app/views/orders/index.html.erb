@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Orderdate</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Phonenumber</th>
+      <th>Email</th>
+      <th>Addressline1</th>
+      <th>Addressline2</th>
+      <th>Province</th>
+      <th>City</th>
+      <th>Postalcode</th>
+      <th>Subtotal</th>
+      <th>Tax</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.user_id %></td>
+        <td><%= order.orderDate %></td>
+        <td><%= order.firstName %></td>
+        <td><%= order.lastName %></td>
+        <td><%= order.phoneNumber %></td>
+        <td><%= order.email %></td>
+        <td><%= order.addressLine1 %></td>
+        <td><%= order.addressLine2 %></td>
+        <td><%= order.province %></td>
+        <td><%= order.city %></td>
+        <td><%= order.postalCode %></td>
+        <td><%= order.subtotal %></td>
+        <td><%= order.tax %></td>
+        <td><%= order.total %></td>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order', new_order_path %>
