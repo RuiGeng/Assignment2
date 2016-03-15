@@ -11,14 +11,11 @@ class User < ActiveRecord::Base
   validates :name, presence: true, on: [:create, :save, :update],
             length: { maximum: 50 }
   
-  validates :email, :presence => true, 
-            :length => {:minimum => 3, :maximum => 254},
-            uniqueness: { case_sensitive: false }, :email => true, 
-            :with  => Devise.email_regexp, on: [:create, :save, :update]
-            
-            
+  validates :email, :presence => true, length: { in: 3..50 },
+            uniqueness: { case_sensitive: false },
+            format: { with: Devise.email_regexp }, on: [:create, :save, :update]
+  
   validates :password, :presence => true, :confirmation => true,
-            :within => Devise.password_length, on: [:create, :save, :update],
-            :unless => :force_submit
-            
+            length: { in: Devise.password_length }, on: [:create, :save, :update]
+
 end
