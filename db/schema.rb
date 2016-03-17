@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311025357) do
+ActiveRecord::Schema.define(version: 20160317022333) do
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "first_name",    limit: 255,                default: "",   null: false
+    t.string   "last_name",     limit: 255,                default: "",   null: false
+    t.string   "phone_number",  limit: 255,                default: "",   null: false
+    t.string   "email",         limit: 255,                default: "",   null: false
+    t.string   "address_line1", limit: 255,                default: "",   null: false
+    t.string   "address_line2", limit: 255,                default: "",   null: false
+    t.string   "province",      limit: 255,                default: "",   null: false
+    t.string   "city",          limit: 255,                default: "",   null: false
+    t.string   "postal_code",   limit: 255,                default: "",   null: false
+    t.decimal  "subtotal",                  precision: 10, default: 0,    null: false
+    t.float    "tax",           limit: 24,                 default: 1.13, null: false
+    t.decimal  "total",                     precision: 10, default: 0,    null: false
+    t.integer  "user_id",       limit: 4,                                 null: false
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
+  end
+
+  add_index "orders", ["user_id", "created_at"], name: "index_orders_on_user_id_and_created_at", using: :btree
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255,                 null: false
@@ -33,4 +54,5 @@ ActiveRecord::Schema.define(version: 20160311025357) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "orders", "users"
 end
