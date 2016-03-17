@@ -1,8 +1,10 @@
 class Order < ActiveRecord::Base
   belongs_to :user
+  default_scope -> { order(created_at: :desc) }
+  
   VALID_PHONE_REGEX = /\d{3}-\d{3}-\d{4}/
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  VALID_POSTALCODE_REGEX = /\A[ABCEGHJKLMNPRSTVXY]{1}\\d{1}[A-Z]{1}[ -]?\\d{1}[A-Z]{1}\\d{1}\z/
+  VALID_POSTALCODE_REGEX = /[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]/
   validates :user_id, presence: true
   
   validates :first_name, presence: true, length: { maximum: 25 }
