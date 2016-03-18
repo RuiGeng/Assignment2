@@ -1,6 +1,10 @@
 class Pizza < ActiveRecord::Base
   belongs_to :order
   
+  before_save do
+    self.toppings.gsub!(/[\[\]\"]/, "") if attribute_present?("toppings")
+  end
+  
   default_scope -> { order(created_at: :desc) }
 
   validates :order_id, presence: true

@@ -11,12 +11,12 @@ class User < ActiveRecord::Base
   
   validates :email, presence: true, length: { in: 3..50 },
             uniqueness: { case_sensitive: false },
-            format: { with: Devise.email_regexp }, on: [:create, :save, :update]
+            format: { with: Devise.email_regexp }, on: [:save]
   
   validates :password, presence: true, confirmation: true,
-            length: { in: Devise.password_length }, on: [:create, :save, :update]
+            length: { in: Devise.password_length }, on: [:save]
   
   validates :password_confirmation, :presence => true,
-            length: { in: Devise.password_length }, on: [:create, :save, :update]
+            length: { in: Devise.password_length }, on: [:save]
 
 end

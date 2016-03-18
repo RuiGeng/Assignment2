@@ -1,22 +1,22 @@
 class PizzasController < ApplicationController
-  before_action :set_order, only: [:create]
+  before_action :set_order, only: [:create, :new]
   before_action :set_pizza, only: [:show]
   
-  # GET /order/new
-  
   def new
-     @pizza = Pizza.new
+    @pizza = Pizza.new
   end
   
   def show
   end
   
   def create
-    @pizza = @order.pizzas.build(pizza_params)
-    if @pizza.save
-    else
-      flash[:alert] = "Pizza failed!"
-      render 'new'
+    respond_to do |format|
+      @pizzas = @order.pizzas.build(pizza_params)
+      if @pizzas.save
+        format.html { redirect_to new_order_pizza_path, notice: 'Pizza was successfully added to the Order.' }
+      else
+        format.html { redirect_to new_order_path, notice: 'Pizza was failed.' }
+      end
     end
   end
   
@@ -26,14 +26,17 @@ class PizzasController < ApplicationController
     end
   
     def set_order
-      @order = Order.find(session[:order_id])
+      
+      puts params
+      
+      @order = Order.find(params[:order_id])
       rescue ActiveRecord::RecordNotFound
-      @order = Order.create
-      session[:order_id] = @order.id
+        flash[:notice] = "Pleae Create an Order first!"
+        redirect_to new_order_path
     end  
     
     def pizza_params
-      params.require(:pizza).permit(:pizza_type, :pizza_size, :toppings, :crust, :order_id)
+      params.require(:pizza).permit(:pizza_type, :pizza_size, :crust, toppings:[])
     end
     
 end

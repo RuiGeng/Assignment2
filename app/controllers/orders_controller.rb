@@ -11,13 +11,14 @@ class OrdersController < ApplicationController
   end
   
   def create
-    @order = current_user.orders.build(order_params)
-    if @order.save
-      flash[:success] = "Order created!"
-      redirect_to new_pizza_path
-    else
-      flash[:alert] = "Order failed!"
-      render 'new'
+    respond_to do |format|
+      @order = current_user.orders.build(order_params)
+      if @order.save
+        format.html { redirect_to new_order_pizza_path(:order_id => @order.id), notice: 'Order was successfully generated.' }
+      else
+        format.html { redirect_to @user, notice: 'Order was failed.' }
+        render 'new'
+      end
     end
   end
 
