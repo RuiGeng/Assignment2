@@ -33,7 +33,7 @@ class PizzasController < ApplicationController
     end  
     
     def pizza_params
-      params.require(:pizza).permit(:type, :size, :toppings, :crust, :order_id)
+      params.require(:pizza).permit(:pizza_type, :pizza_size, :toppings, :crust, :order_id)
     end
     
 end

@@ -1,9 +1,11 @@
 <li id="order-<%= order.id %>">
-  <span class="user"><%= link_to 'Show Order', order %></span>
-  <span class="order_id">
+  <span class="content">
     Order ID:<%= order.id %>
   </span>
   <span class="timestamp">
     Created <%= time_ago_in_words(order.created_at) %> ago.
   </span>
+  <span class="order"><%= link_to 'Show Order', order %></span> |
+  <span class="order"><%= link_to 'Edit Order', order %></span> |
+  <span class="order"><%= link_to 'Destroy Order', order %></span>
 </li>

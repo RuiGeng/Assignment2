@@ -5,27 +5,27 @@
       <div class="row panel panel-primary">
         <div class="panel-heading">PIZZA</div>
         <div class="col-lg-6 col-md-6 col-sm-6">
-        <%= radio_button_tag(:type, "original") %>
-        <%= label_tag(:type_original, "Original Pizza") %>
-        <%= radio_button_tag(:type, "california") %>
-        <%= label_tag(:type_california, "California Pizza") %>
-        <%= radio_button_tag(:type, "neapolitan") %>
-        <%= label_tag(:type_neapolitan, "Neapolitan Pizza") %>
-        <%= radio_button_tag(:type, "poutine") %>
-        <%= label_tag(:type_poutine, "Poutine pizza") %>
+          <%= radio_button_tag('type', "original", f.pizza_type == "original" ) %>
+          <%= label_tag('type_original', "Original Pizza") %>
+          <%= radio_button_tag('type', "california",  f.pizza_type == "california" ) %>
+          <%= label_tag('type_california', "California Pizza") %>
+          <%= radio_button_tag('type', "neapolitan", f.pizza_type == "neapolitan" ) %>
+          <%= label_tag('type_neapolitan', "Neapolitan Pizza") %>
+          <%= radio_button_tag('type', "poutine", f.pizza_type == "poutine" ) %>
+          <%= label_tag('type_poutine', "Poutine pizza") %>
        </div>
       </div>
       
       <div class="row panel panel-primary">
         <div class="panel-heading">SIZE</div>
         <div class="col-lg-6 col-md-6 col-sm-6">
-        <%= radio_button_tag(:size, "small") %>
+        <%= radio_button_tag(:pizza_size, "small") %>
         <%= label_tag(:size_small, "Small") %>
-        <%= radio_button_tag(:size, "medium") %>
+        <%= radio_button_tag(:pizza_size, "medium") %>
         <%= label_tag(:size_medium, "Medium") %>
-        <%= radio_button_tag(:size, "large") %>
+        <%= radio_button_tag(:pizza_size, "large") %>
         <%= label_tag(:size_large, "Large") %>
-        <%= radio_button_tag(:size, "xlarge") %>
+        <%= radio_button_tag(:pizza_size, "xlarge") %>
         <%= label_tag(:size_xlarge, "X-Large") %>
         </div>
       </div>
@@ -63,9 +63,8 @@
       <div class="row panel panel-primary">
         <div class="panel-heading">CRUST</div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-          <div class="checkbox"></div>
-            <label>
-              <%= check_box_tag 'pizza[crust][]', 'stuffed crust', false %>Stuffed Crust</label>
+          <div class="checkbox">
+            <label><%= check_box_tag 'pizza[crust][]', 'stuffed crust', false %>Stuffed Crust</label>
           </div>
         </div>
       </div>

@@ -5,12 +5,10 @@ class Pizza < ActiveRecord::Base
 
   validates :order_id, presence: true
   
-  validates :type, presence: true, length: { maximum: 25 }
+  validates :pizza_type, presence: true, length: { maximum: 25 }
   
-  validates :size, presence: true, length: { maximum: 25 }
+  validates :pizza_size, presence: true, length: { maximum: 25 }
 
-  validates :size, presence: true, length: { maximum: 25 }
-  
   validates :toppings, presence: true, length: { maximum: 254 }
   
   validates :crust, presence: true, length: { maximum: 254 }
