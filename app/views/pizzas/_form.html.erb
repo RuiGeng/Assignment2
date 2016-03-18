@@ -1,0 +1,77 @@
+<div class="row">
+    <%= form_for(@pizza) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+            
+      <div class="row panel panel-primary">
+        <div class="panel-heading">PIZZA</div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+        <%= radio_button_tag(:type, "original") %>
+        <%= label_tag(:type_original, "Original Pizza") %>
+        <%= radio_button_tag(:type, "california") %>
+        <%= label_tag(:type_california, "California Pizza") %>
+        <%= radio_button_tag(:type, "neapolitan") %>
+        <%= label_tag(:type_neapolitan, "Neapolitan Pizza") %>
+        <%= radio_button_tag(:type, "poutine") %>
+        <%= label_tag(:type_poutine, "Poutine pizza") %>
+       </div>
+      </div>
+      
+      <div class="row panel panel-primary">
+        <div class="panel-heading">SIZE</div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+        <%= radio_button_tag(:size, "small") %>
+        <%= label_tag(:size_small, "Small") %>
+        <%= radio_button_tag(:size, "medium") %>
+        <%= label_tag(:size_medium, "Medium") %>
+        <%= radio_button_tag(:size, "large") %>
+        <%= label_tag(:size_large, "Large") %>
+        <%= radio_button_tag(:size, "xlarge") %>
+        <%= label_tag(:size_xlarge, "X-Large") %>
+        </div>
+      </div>
+      
+      <div class="row panel panel-primary">
+        <div class="panel-heading">TOPPINGS</div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <%= label_tag 'toppings_onion', 'Onion' %>
+          <%= check_box_tag 'pizza[toppings][]', 'onion', checked('onion'), id: 'toppings_onion' %>
+          <%= label_tag 'toppings_pepper', 'Green Pepper' %>
+          <%= check_box_tag 'pizza[toppings][]', 'pepper', checked('pepper'), id: 'toppings_pepper' %>
+          <%= label_tag 'toppings_mushroom', 'Mushroom' %>
+          <%= check_box_tag 'pizza[toppings][]', 'mushroom', checked('mushroom'), id: 'toppings_mushroom' %>
+          <%= label_tag 'toppings_olives', 'Olives' %>
+          <%= check_box_tag 'pizza[toppings][]', 'olives', checked('olives'), id: 'toppings_olives' %>
+          <%= label_tag 'toppings_pineapple', 'Pineapple' %>
+          <%= check_box_tag 'pizza[toppings][]', 'pineapple', checked('pineapple'), id: 'toppings_pineapple' %>
+          <%= label_tag 'toppings_asparagus', 'Asparagus' %>
+          <%= check_box_tag 'pizza[toppings][]', 'asparagus', checked('asparagus'), id: 'toppings_asparagus' %>
+          <%= label_tag 'toppings_pepperoni', 'Pepperoni' %>
+          <%= check_box_tag 'pizza[toppings][]', 'pepperoni', checked('pepperoni'), id: 'toppings_pepperoni' %>
+          <%= label_tag 'toppings_bacon', 'Bacon' %>
+          <%= check_box_tag 'pizza[toppings][]', 'bacon', checked('bacon'), id: 'toppings_bacon' %>
+          <%= label_tag 'toppings_ham', 'Ham' %>
+          <%= check_box_tag 'pizza[toppings][]', 'ham', checked('ham'), id: 'toppings_ham' %>
+          <%= label_tag 'toppings_beef', 'Beef' %>
+          <%= check_box_tag 'pizza[toppings][]', 'beef', checked('beef'), id: 'toppings_beef' %>
+          <%= label_tag 'toppings_sausage', 'Sausage' %>
+          <%= check_box_tag 'pizza[toppings][]', 'sausage', checked('sausage'), id: 'toppings_sausage' %>
+          <%= label_tag 'toppings_chicken', 'Buffalo Chicken' %>
+          <%= check_box_tag 'pizza[toppings][]', 'chicken', checked('chicken'), id: 'toppings_chicken' %>
+        </div>
+      </div>
+      
+      <div class="row panel panel-primary">
+        <div class="panel-heading">CRUST</div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <div class="checkbox"></div>
+            <label>
+              <%= check_box_tag 'pizza[crust][]', 'stuffed crust', false %>Stuffed Crust</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="actions">
+        <%= f.submit "Continue to pizza Pizza", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+</div>

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  type_price: 
+  size: 
+  size_price: 
+  toppings: 
+  toppings_price: 
+  crust: 
+  crust_price: 
+  total_price: 9.99
+  order_id: 
+
+two:
+  type: 
+  type_price: 
+  size: 
+  size_price: 
+  toppings: 
+  toppings_price: 
+  crust: 
+  crust_price: 
+  total_price: 9.99
+  order_id: 

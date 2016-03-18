@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317022333) do
+ActiveRecord::Schema.define(version: 20160317203718) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "first_name",    limit: 255,                default: "",   null: false
@@ -34,6 +34,24 @@ ActiveRecord::Schema.define(version: 20160317022333) do
   add_index "orders", ["user_id", "created_at"], name: "index_orders_on_user_id_and_created_at", using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
+  create_table "pizzas", force: :cascade do |t|
+    t.string   "pizza_type",     limit: 255,                default: "", null: false
+    t.decimal  "type_price",                 precision: 10, default: 0,  null: false
+    t.string   "pizza_size",     limit: 255,                default: "", null: false
+    t.decimal  "size_price",                 precision: 10, default: 0,  null: false
+    t.string   "toppings",       limit: 255,                default: "", null: false
+    t.decimal  "toppings_price",             precision: 10, default: 0,  null: false
+    t.string   "crust",          limit: 255,                default: "", null: false
+    t.decimal  "crust_price",                precision: 10, default: 0,  null: false
+    t.decimal  "total_price",                precision: 10, default: 0,  null: false
+    t.integer  "order_id",       limit: 4,                               null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+  end
+
+  add_index "pizzas", ["order_id", "created_at"], name: "index_pizzas_on_order_id_and_created_at", using: :btree
+  add_index "pizzas", ["order_id"], name: "index_pizzas_on_order_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255,                 null: false
     t.boolean  "admin",                  limit: 1,   default: false, null: false
@@ -55,4 +73,5 @@ ActiveRecord::Schema.define(version: 20160317022333) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "orders", "users"
+  add_foreign_key "pizzas", "orders"
 end

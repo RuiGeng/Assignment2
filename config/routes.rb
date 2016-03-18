@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {registrations: 'registrations'}
   resources :users, only: [:show]
-  resources :orders, only: [:new, :create]
+  resources :orders, only: [:new, :create, :show]
+  resources :pizzas, only: [:new, :show, :create]
   root      "home#index"
 
 end

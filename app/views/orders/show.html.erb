@@ -1,0 +1,13 @@
+<h1>Your Order</h1>
+
+<div class="container">
+  <div class="row">
+    <% if @order.pizzas.any? %>
+      <h3>Pizza (<%= @order.pizzas.count %>)</h3>
+      <ol class="orders">
+      <%= render @pizzas %>
+      </ol>
+      <%= will_paginate @pizzas %>
+    <% end %>
+  </div>
+</div>

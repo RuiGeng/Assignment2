@@ -1,0 +1,9 @@
+<li id="order-<%= pizza.id %>">
+  <span class="user"><%= link_to 'show pizza', pizza %></span>
+  <span class="order_id">
+    Pizza Order:<%= pizza.order.id %>
+  </span>
+  <span class="timestamp">
+    Created <%= time_ago_in_words(pizza.created_at) %> ago.
+  </span>
+</li>

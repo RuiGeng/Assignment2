@@ -1,8 +1,10 @@
 class Order < ActiveRecord::Base
   belongs_to :user
+  has_many :pizzas, dependent: :destroy
+
   default_scope -> { order(created_at: :desc) }
   
-  VALID_PHONE_REGEX = /\d{3}-\d{3}-\d{4}/
+  VALID_PHONE_REGEX = /\d{3}-?\d{3}-?\d{4}/
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_POSTALCODE_REGEX = /[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]/
   validates :user_id, presence: true
