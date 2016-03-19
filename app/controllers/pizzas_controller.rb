@@ -8,21 +8,22 @@ class PizzasController < ApplicationController
   
   def show
   end
-  
-  def finsh
-  end
-  
+
   def create
-    respond_to do |format|
+    #respond_to do |format|
       @pizzas = @order.pizzas.build(pizza_params)
       if @pizzas.save
         @order = Order.find(@pizzas.order.id)
         @order.update_subtotal
-        format.html { redirect_to new_order_pizza_path, notice: 'Pizza was successfully added to the Order.' }
+        flash[:notice] = "Pizza was successfully added to the Order."
+        redirect_to new_order_pizza_path
+        #format.html { redirect_to new_order_pizza_path, notice: 'Pizza was successfully added to the Order.' }
       else
-        format.html { redirect_to new_order_path, notice: 'Pizza was failed.' }
+        flash[:alert] = "Pizza was failed."
+        redirect_to 'new'
+        #format.html { redirect_to new_order_path, notice: 'Pizza was failed.' }
       end
-    end
+    #end
   end
   
   private
@@ -40,5 +41,4 @@ class PizzasController < ApplicationController
     def pizza_params
       params.require(:pizza).permit(:pizza_type, :pizza_size, :crust, toppings:[])
     end
-    
 end
