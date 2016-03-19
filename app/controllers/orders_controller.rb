@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :destroy]
-  
+  before_action :set_pizza, only: [:show, :destroy]
   # GET /order/new
   def new
      @order = Order.new
@@ -29,6 +29,10 @@ class OrdersController < ApplicationController
   private
     def set_order
       @order = Order.find(params[:id])
+    end
+    
+    def set_pizza
+      @pizzas = Pizza.where(order_id: params[:id])
     end
   
     def order_params

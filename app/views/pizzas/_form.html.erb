@@ -1,76 +1,79 @@
-<div class="row col-lg-8 col-md-8">
-    <%= form_for [@order, @pizza] do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      
-      <div class="row panel panel-primary">
-        <div class="panel-heading">PIZZA</div>
-        <%= f.radio_button :pizza_type, 'original'  %>
-        <%= f.label :pizza_type_original, "Original Pizza" %>
+<%= form_for [@order, @pizza] do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    
+    <div class="row panel panel-primary">
+      <div class="panel-heading">PIZZA</div>
+      <%= f.radio_button :pizza_type, 'Original'  %>
+      <%= f.label :pizza_type_original, "Original Pizza" %>
 
-        <%= f.radio_button :pizza_type, 'california'  %> 
-        <%= f.label :pizza_type_california, "California Pizza" %>
+      <%= f.radio_button :pizza_type, 'California'  %> 
+      <%= f.label :pizza_type_california, "California Pizza" %>
 
-        <%= f.radio_button :pizza_type, 'neapolitan'  %> 
-        <%= f.label :pizza_type_neapolitan, "Neapolitan Pizza" %>
+      <%= f.radio_button :pizza_type, 'Neapolitan'  %> 
+      <%= f.label :pizza_type_neapolitan, "Neapolitan Pizza" %>
 
-        <%= f.radio_button :pizza_type, 'poutine'  %> 
-        <%= f.label :pizza_type_poutine, "Poutine Pizza" %>
-      </div>
+      <%= f.radio_button :pizza_type, 'Poutine'  %> 
+      <%= f.label :pizza_type_poutine, "Poutine Pizza" %>
+    </div>
+    
+    <div class="row panel panel-primary">
+      <div class="panel-heading">SIZE</div>
+      <%= f.radio_button :pizza_size, "Small"  %>
+      <%= f.label :pizza_size_small, "Small" %>
       
-      <div class="row panel panel-primary">
-        <div class="panel-heading">SIZE</div>
-        <%= f.radio_button :pizza_size, "Small"  %>
-        <%= f.label :pizza_size_small, "Small" %>
-        
-        <%= f.radio_button :pizza_size, "Medium"  %> 
-        <%= f.label :pizza_size_medium, "Medium" %>
-        
-        <%= f.radio_button :pizza_size, "large"  %> 
-        <%= f.label :pizza_size_large, "Large" %>
-        
-        <%= f.radio_button :pizza_size, "xlarge"  %> 
-        <%= f.label :pizza_size_xlarge, "X-large" %>
-      </div>
+      <%= f.radio_button :pizza_size, "Medium"  %> 
+      <%= f.label :pizza_size_medium, "Medium" %>
       
-      <div class="row panel panel-primary">
-        <div class="panel-heading">TOPPINGS</div>
+      <%= f.radio_button :pizza_size, "large"  %> 
+      <%= f.label :pizza_size_large, "Large" %>
+      
+      <%= f.radio_button :pizza_size, "X-large"  %> 
+      <%= f.label :pizza_size_xlarge, "X-large" %>
+    </div>
+    
+    <div class="row panel panel-primary">
+      <div class="panel-heading">TOPPINGS</div>
 
-        <label id="toppings_onion"><%= check_box_tag 'pizza[toppings][]', 'onion', checked('onion'), id: 'toppings_onion' %>Onion</label>
-        
-        <label id="toppings_pepper"><%= check_box_tag 'pizza[toppings][]', 'pepper', checked('pepper'), id: 'toppings_pepper' %>Green Pepper</label>
-        
-        <label id="toppings_mushroom"><%= check_box_tag 'pizza[toppings][]', 'mushroom', checked('mushroom'), id: 'toppings_mushroom' %>Mushroom</label>
-        
-        <label id="toppings_olives"><%= check_box_tag 'pizza[toppings][]', 'olives', checked('olives'), id: 'toppings_olives' %>Olives</label>
-        
-        <label id="toppings_pineapple"><%= check_box_tag 'pizza[toppings][]', 'pineapple', checked('pineapple'), id: 'toppings_pineapple' %>Pineapple</label>
-        
-        <label id="toppings_asparagus"><%= check_box_tag 'pizza[toppings][]', 'asparagus', checked('asparagus'), id: 'toppings_asparagus' %>Asparagus</label>
-        
-        <label id="toppings_pepperoni"><%= check_box_tag 'pizza[toppings][]', 'pepperoni', checked('pepperoni'), id: 'toppings_pepperoni' %>Pepperoni</label>
-        
-        <label id="toppings_bacon"><%= check_box_tag 'pizza[toppings][]', 'bacon', checked('bacon'), id: 'toppings_bacon' %>Bacon</label>
-        
-        <label id="toppings_ham"><%= check_box_tag 'pizza[toppings][]', 'ham', checked('ham'), id: 'toppings_ham' %>Ham</label>
-        
-        <label id="toppings_beef"><%= check_box_tag 'pizza[toppings][]', 'beef', checked('beef'), id: 'toppings_beef' %>Beef</label>
-        
-        <label id="toppings_sausage"><%= check_box_tag 'pizza[toppings][]', 'sausage', checked('sausage'), id: 'toppings_sausage' %>Sausage</label>
+      <label id="toppings_onion"><%= check_box_tag 'pizza[toppings][]', 'onion', checked('Onion'), id: 'toppings_onion' %>Onion</label>
+      
+      <label id="toppings_pepper"><%= check_box_tag 'pizza[toppings][]', 'pepper', checked('Pepper'), id: 'toppings_pepper' %>Green Pepper</label>
+      
+      <label id="toppings_mushroom"><%= check_box_tag 'pizza[toppings][]', 'mushroom', checked('Mushroom'), id: 'toppings_mushroom' %>Mushroom</label>
+      
+      <label id="toppings_olives"><%= check_box_tag 'pizza[toppings][]', 'olives', checked('Olives'), id: 'toppings_olives' %>Olives</label>
+      
+      <label id="toppings_pineapple"><%= check_box_tag 'pizza[toppings][]', 'pineapple', checked('Pineapple'), id: 'toppings_pineapple' %>Pineapple</label>
+      
+      <label id="toppings_asparagus"><%= check_box_tag 'pizza[toppings][]', 'asparagus', checked('Asparagus'), id: 'toppings_asparagus' %>Asparagus</label>
+      
+      <label id="toppings_pepperoni"><%= check_box_tag 'pizza[toppings][]', 'pepperoni', checked('Pepperoni'), id: 'toppings_pepperoni' %>Pepperoni</label>
+      
+      <label id="toppings_bacon"><%= check_box_tag 'pizza[toppings][]', 'bacon', checked('Bacon'), id: 'toppings_bacon' %>Bacon</label>
+      
+      <label id="toppings_ham"><%= check_box_tag 'pizza[toppings][]', 'ham', checked('Ham'), id: 'toppings_ham' %>Ham</label>
+      
+      <label id="toppings_beef"><%= check_box_tag 'pizza[toppings][]', 'beef', checked('Beef'), id: 'toppings_beef' %>Beef</label>
+      
+      <label id="toppings_sausage"><%= check_box_tag 'pizza[toppings][]', 'sausage', checked('Sausage'), id: 'toppings_sausage' %>Sausage</label>
 
-        <label id="toppings_chicken"><%= check_box_tag 'pizza[toppings][]', 'chicken', checked('chicken'), id: 'toppings_chicken' %>Buffalo Chicken</label>
-      </div>
-      
-      <div class="row panel panel-primary">
-        <div class="panel-heading">CRUST</div>
-          <%= f.radio_button :crust, :none %>
-          <%= f.label :crust_none, "None" %>
-          
-          <%= f.radio_button :crust, :stuffed %>
-          <%= f.label :crust_stuffed, "Poutine Pizza" %>
-      </div>
-      
-      <div class="actions">
-        <%= f.submit "Continue to Order Pizza", class: "btn btn-primary" %>
-      </div>
-    <% end %>
+      <label id="toppings_chicken"><%= check_box_tag 'pizza[toppings][]', 'chicken', checked('Chicken'), id: 'toppings_chicken' %>Buffalo Chicken</label>
+    </div>
+    
+    <div class="row panel panel-primary">
+      <div class="panel-heading">CRUST</div>
+        <%= f.radio_button :crust, :none %>
+        <%= f.label :crust_none, "Normal" %>
+        
+        <%= f.radio_button :crust, :stuffed %>
+        <%= f.label :crust_stuffed, "Crust_Stuffed" %>
+    </div>
+    
+    <div class="actions">
+      <%= f.submit "Continue to Order Pizza", class: "btn btn-primary" %>
+    </div>
+    
+<% end %>
+
+<div class="actions">
+  <%= button_to "Finsh the Order", order_path(@order.id), :class => "btn btn-primary", :method=> :get %>
 </div>

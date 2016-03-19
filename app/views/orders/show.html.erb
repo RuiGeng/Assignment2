@@ -11,3 +11,79 @@
     <% end %>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+   <h3>Delivery Information</h3>
+   <ul class="list-unstyled">
+    <li>
+      <span class="content">
+       First Name:<%= @order.first_name %>
+      </span>
+    </li>
+    <li>
+    <span class="content">
+     Last Name:<%= @order.last_name %>
+    </span>
+    </li>
+    <li>
+     <span class="content">
+      Phone Number:<%= @order.phone_number %>
+     </span>
+    </li>
+    <li>
+    <span class="content">
+     Email address:<%= @order.email %>
+    </span>
+    </li>
+    <li>
+    <span class="content">
+     Address Line 1:<%= @order.address_line1 %>
+    </span>
+    </li>
+    <li>
+    <span class="content">
+     Address Line 2:<%= @order.address_line2 %>
+    </span>
+    </li>
+    <li>
+    <span class="content">
+     Province:<%= @order.province %>
+    </span>
+    </li>
+    <li>
+    <span class="content">
+     City:<%= @order.city %>
+    </span>
+    </li>
+    <li>
+    <span class="content">
+     Postal Code:<%= @order.postal_code %>
+    </span>
+    </li>
+  </ul>
+  </div>
+</div>
+    
+
+<div class="container">
+  <div class="row">
+   <h3>Pirce Information</h3>
+   <ul class="list-unstyled">
+    <li>
+      <span class="content">
+       Subtotal:<%= @order.subtotal %>
+      </span>
+    </li>
+    <li>
+      <span class="content">
+       Tax:<%= @order.tax %>
+      </span>
+    </li>
+    <li>
+      <span class="content">
+       Total:<%= @order.total %>
+      </span>
+    </li>
+   </ul>
+  </div>
+</div>

@@ -1,11 +1,20 @@
 <li id="order-<%= pizza.id %>">
   <span class="content">
-    Pizza Order:<%= pizza.order.id %>
+    Pizza Type:<%= pizza.pizza_type %>
+  </span>
+  <span class="content">
+    Pizza Size:<%= pizza.pizza_size %>
+  </span>
+  <span class="content">
+    Pizza Toppings:<%= pizza.toppings %>
+  </span>
+  <span class="content">
+    Pizza Crust:<%= pizza.crust %>
+  </span>
+  <span class="content">
+    Pizza Price:<%= pizza.total_price %>
   </span>
   <span class="timestamp">
     Created <%= time_ago_in_words(pizza.created_at) %> ago.
   </span>
-  <span class="order"><%= link_to 'Show Pizza', order_pizza_path(pizza.order.id, pizza.id) %></span> |
-  <span class="order"><%= link_to 'Edit Pizza', order_pizza_path(pizza.order.id, pizza.id) %></span> |
-  <span class="order"><%= link_to 'Destroy Pizza', order_pizza_path(pizza.order.id, pizza.id) %></span>
 </li>

@@ -1,5 +1,5 @@
 class PizzasController < ApplicationController
-  before_action :set_order, only: [:create, :new]
+  before_action :set_order, only: [:create, :new, :finsh]
   before_action :set_pizza, only: [:show]
   
   def new
@@ -7,6 +7,9 @@ class PizzasController < ApplicationController
   end
   
   def show
+  end
+  
+  def finsh
   end
   
   def create
@@ -26,9 +29,6 @@ class PizzasController < ApplicationController
     end
   
     def set_order
-      
-      puts params
-      
       @order = Order.find(params[:order_id])
       rescue ActiveRecord::RecordNotFound
         flash[:notice] = "Pleae Create an Order first!"
