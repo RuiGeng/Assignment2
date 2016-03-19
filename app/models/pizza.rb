@@ -1,6 +1,6 @@
 class Pizza < ActiveRecord::Base
   belongs_to :order
-  before_save :format_toppings
+  before_save :format_toppings, :get_size_price, :get_toppings_price, :get_crust_price, :get_total_price
   
   default_scope -> { order(created_at: :desc) }
 
@@ -17,5 +17,36 @@ class Pizza < ActiveRecord::Base
   protected
     def format_toppings
       self.toppings.gsub!(/[\[\]\"]/, "") if attribute_present?("toppings")
+    end
+    
+    def get_size_price
+      if self.pizza_size == 'small'
+        self.size_price = 5
+      elsif self.pizza_size == 'medium'
+        self.size_price = 10
+      elsif self.pizza_size == 'large'
+        self.size_price = 15
+      elsif self.pizza_size == 'X-large'
+        self.size_price = 20
+      else
+        self.size_price = 5
+      end
+    end
+    
+    def get_toppings_price
+      topping_count = self.toppings.split(",").count
+      if topping_count != 0
+          self.toppings_price = (topping_count - 1) * 0.50
+      end
+    end
+    
+    def get_crust_price
+      if self.crust == 'stuffed'
+          self.crust_price = 2
+      end
+    end
+    
+    def get_total_price
+      self.total_price = self.type_price + self.size_price + self.size_price + self.crust_price
     end
 end

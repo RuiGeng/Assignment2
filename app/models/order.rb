@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   belongs_to :user
   has_many :pizzas, dependent: :destroy
-  before_save :get_TaxRate
+  before_save :get_taxrate
 
   default_scope -> { order(created_at: :desc) }
   
@@ -30,18 +30,19 @@ class Order < ActiveRecord::Base
   
   validates :postal_code, presence: true, 
             format: { with: VALID_POSTALCODE_REGEX, message: "Please Enter a Valid Postal Code" }
-            
-  def get_TaxRate
-    if self.province == 'ontario'
-      self.tax = 1.13
-    elsif self.province == 'quebec'
-      self.tax = 1.11
-    elsif self.province == 'manitoba'
-      self.tax = 1.10
-    elsif self.province == 'saskatchewan'
-      self.tax = 1.15
-    else
-      self.tax = 1.13
+  
+  protected          
+    def get_taxrate
+      if self.province == 'ontario'
+        self.tax = 1.13
+      elsif self.province == 'quebec'
+        self.tax = 1.11
+      elsif self.province == 'manitoba'
+        self.tax = 1.10
+      elsif self.province == 'saskatchewan'
+        self.tax = 1.15
+      else
+        self.tax = 1.13
+      end
     end
-  end
 end
