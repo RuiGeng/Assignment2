@@ -31,6 +31,12 @@ class Order < ActiveRecord::Base
   validates :postal_code, presence: true, 
             format: { with: VALID_POSTALCODE_REGEX, message: "Please Enter a Valid Postal Code" }
   
+  
+  def update_subtotal
+    self.update_column(:subtotal, self.pizzas.sum(:total_price))
+    self.update_column(:total, self.subtotal * self.tax )
+  end
+  
   protected          
     def get_taxrate
       if self.province == 'ontario'

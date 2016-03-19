@@ -16,6 +16,8 @@ class PizzasController < ApplicationController
     respond_to do |format|
       @pizzas = @order.pizzas.build(pizza_params)
       if @pizzas.save
+        @order = Order.find(@pizzas.order.id)
+        @order.update_subtotal
         format.html { redirect_to new_order_pizza_path, notice: 'Pizza was successfully added to the Order.' }
       else
         format.html { redirect_to new_order_path, notice: 'Pizza was failed.' }

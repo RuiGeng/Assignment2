@@ -1,6 +1,7 @@
 class Pizza < ActiveRecord::Base
   belongs_to :order
   before_save :format_toppings, :get_size_price, :get_toppings_price, :get_crust_price, :get_total_price
+  after_save :update_order_subtotal
   
   default_scope -> { order(created_at: :desc) }
 
@@ -47,6 +48,10 @@ class Pizza < ActiveRecord::Base
     end
     
     def get_total_price
-      self.total_price = self.type_price + self.size_price + self.size_price + self.crust_price
+      self.total_price = self.type_price + self.size_price + self.toppings_price + self.crust_price
+    end
+    
+    def update_order_subtotal
+      self.order.update_subtotal
     end
 end
