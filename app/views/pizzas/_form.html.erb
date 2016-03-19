@@ -68,12 +68,11 @@
         <%= f.label :crust_stuffed, "Crust_Stuffed" %>
     </div>
     
-    <div class="actions">
-      <%= f.submit "Continue to Order Pizza", class: "btn btn-primary" %>
+    <div class="row">
+      <%= f.submit "Add Current Pizza to Order", class: "btn btn-primary" %>
     </div>
-    
 <% end %>
 
-<div class="actions">
-  <%= button_to "Finsh the Order", order_path(@order.id), :class => "btn btn-primary", :method=> :get %>
+<div class="row">
+  <%= button_to "Finish the Order", order_path(@order.id), :class => "btn btn-primary", :method=> :get %>
 </div>

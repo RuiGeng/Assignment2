@@ -1,9 +1,6 @@
 class Pizza < ActiveRecord::Base
   belongs_to :order
-  
-  before_save do
-    self.toppings.gsub!(/[\[\]\"]/, "") if attribute_present?("toppings")
-  end
+  before_save :format_toppings
   
   default_scope -> { order(created_at: :desc) }
 
@@ -16,5 +13,9 @@ class Pizza < ActiveRecord::Base
   validates :toppings, presence: true, length: { maximum: 254 }
   
   validates :crust, presence: true, length: { maximum: 254 }
-
+  
+  protected
+    def format_toppings
+      self.toppings.gsub!(/[\[\]\"]/, "") if attribute_present?("toppings")
+    end
 end
