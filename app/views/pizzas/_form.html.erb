@@ -1,78 +1,124 @@
 <%= form_for [@order, @pizza] do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
-    
-    <h3>You have ordered <%= @order.pizzas.count %> pizza</h3>
-    
+  <%= render 'shared/error_messages', object: f.object %>
+  
+  <h3>You have ordered <%= @order.pizzas.count %> pizza</h3>
     <div class="row panel panel-primary">
       <div class="panel-heading">PIZZA</div>
-      <%= f.radio_button :pizza_type, 'Original', :checked => true %>
-      <%= f.label :pizza_type_original, "Original Pizza" %>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <%= image_tag "Pizza/Pizza1.jpg", :class => "img-responsive img-rounded" %>
+          <%= f.radio_button :pizza_type, 'Original', :checked => true %>
+          <%= f.label :pizza_type_original, "Original Pizza" %>
+        </div>
 
-      <%= f.radio_button :pizza_type, 'California'  %> 
-      <%= f.label :pizza_type_california, "California Pizza" %>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <%= image_tag "Pizza/Pizza2.jpg", :class => "img-responsive img-rounded" %>
+          <%= f.radio_button :pizza_type, 'California'  %> 
+          <%= f.label :pizza_type_california, "California Pizza" %>
+        </div>
 
-      <%= f.radio_button :pizza_type, 'Neapolitan'  %> 
-      <%= f.label :pizza_type_neapolitan, "Neapolitan Pizza" %>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <%= image_tag "Pizza/Pizza3.jpg", :class => "img-responsive img-rounded" %>
+          <%= f.radio_button :pizza_type, 'Neapolitan'  %> 
+          <%= f.label :pizza_type_neapolitan, "Neapolitan Pizza" %>
+        </div>
 
-      <%= f.radio_button :pizza_type, 'Poutine'  %> 
-      <%= f.label :pizza_type_poutine, "Poutine Pizza" %>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <%= image_tag "Pizza/Pizza3.jpg", :class => "img-responsive img-rounded" %>
+          <%= f.radio_button :pizza_type, 'Poutine'  %> 
+          <%= f.label :pizza_type_poutine, "Poutine Pizza" %>
+        </div>
     </div>
     
-    <div class="row panel panel-primary">
-      <div class="panel-heading">SIZE</div>
+  <div class="row panel panel-primary">
+    <div class="panel-heading">SIZE</div>
+     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+      <%= image_tag "size/small.png", :class => "img-responsive img-rounded" %>
       <%= f.radio_button :pizza_size, "Small", :checked => true  %>
       <%= f.label :pizza_size_small, "Small" %>
-      
+     </div>
+
+     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+      <%= image_tag "size/medium.png", :class => "img-responsive img-rounded" %>
       <%= f.radio_button :pizza_size, "Medium"  %> 
       <%= f.label :pizza_size_medium, "Medium" %>
-      
-      <%= f.radio_button :pizza_size, "large"  %> 
+     </div>
+
+     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+      <%= image_tag "size/Large.png", :class => "img-responsive img-rounded" %>
+      <%= f.radio_button :pizza_size, "Large"  %> 
       <%= f.label :pizza_size_large, "Large" %>
-      
+     </div>    
+
+     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+      <%= image_tag "size/xlarge.png", :class => "img-responsive img-rounded" %>
       <%= f.radio_button :pizza_size, "X-large"  %> 
       <%= f.label :pizza_size_xlarge, "X-large" %>
+     </div>
     </div>
     
-    <div class="row panel panel-primary">
-      <div class="panel-heading">TOPPINGS</div>
-
-      <label id="toppings_onion"><%= check_box_tag 'pizza[toppings][]', 'onion', checked('Onion'), id: 'toppings_onion' %>Onion</label>
-      
+  <div class="row panel panel-primary">
+    <div class="panel-heading">TOPPINGS</div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+      <%= image_tag "topping/onion.png", :class => "img-responsive img-rounded" %>
+      <label id="toppings_onion"><%= check_box_tag 'pizza[toppings][]', 'onion', checked('Onion'), id: 'toppings_onion' %>Onion</label>   
+    
+      <%= image_tag "topping/pepper.png", :class => "img-responsive img-rounded" %>
       <label id="toppings_pepper"><%= check_box_tag 'pizza[toppings][]', 'pepper', checked('Pepper'), id: 'toppings_pepper' %>Green Pepper</label>
-      
+
+      <%= image_tag "topping/mushroom.png", :class => "img-responsive img-rounded" %>
       <label id="toppings_mushroom"><%= check_box_tag 'pizza[toppings][]', 'mushroom', checked('Mushroom'), id: 'toppings_mushroom' %>Mushroom</label>
       
+      <%= image_tag "topping/olives.png", :class => "img-responsive img-rounded" %>
       <label id="toppings_olives"><%= check_box_tag 'pizza[toppings][]', 'olives', checked('Olives'), id: 'toppings_olives' %>Olives</label>
-      
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+      <%= image_tag "topping/pineapple.png", :class => "img-responsive img-rounded" %>
       <label id="toppings_pineapple"><%= check_box_tag 'pizza[toppings][]', 'pineapple', checked('Pineapple'), id: 'toppings_pineapple' %>Pineapple</label>
       
+      <%= image_tag "topping/asparagus.png", :class => "img-responsive img-rounded" %>
       <label id="toppings_asparagus"><%= check_box_tag 'pizza[toppings][]', 'asparagus', checked('Asparagus'), id: 'toppings_asparagus' %>Asparagus</label>
       
+      <%= image_tag "topping/pepperoni.png", :class => "img-responsive img-rounded" %>
       <label id="toppings_pepperoni"><%= check_box_tag 'pizza[toppings][]', 'pepperoni', checked('Pepperoni'), id: 'toppings_pepperoni' %>Pepperoni</label>
       
+      <%= image_tag "topping/bacon.png", :class => "img-responsive img-rounded" %>
       <label id="toppings_bacon"><%= check_box_tag 'pizza[toppings][]', 'bacon', checked('Bacon'), id: 'toppings_bacon' %>Bacon</label>
-      
+    </div>   
+  
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+      <%= image_tag "topping/ham.png", :class => "img-responsive img-rounded" %>
       <label id="toppings_ham"><%= check_box_tag 'pizza[toppings][]', 'ham', checked('Ham'), id: 'toppings_ham' %>Ham</label>
-      
+
+      <%= image_tag "topping/beef.png", :class => "img-responsive img-rounded" %>      
       <label id="toppings_beef"><%= check_box_tag 'pizza[toppings][]', 'beef', checked('Beef'), id: 'toppings_beef' %>Beef</label>
-      
+
+      <%= image_tag "topping/sausage.png", :class => "img-responsive img-rounded" %>      
       <label id="toppings_sausage"><%= check_box_tag 'pizza[toppings][]', 'sausage', checked('Sausage'), id: 'toppings_sausage' %>Sausage</label>
 
+      <%= image_tag "topping/Chicken.png", :class => "img-responsive img-rounded" %>
       <label id="toppings_chicken"><%= check_box_tag 'pizza[toppings][]', 'chicken', checked('Chicken'), id: 'toppings_chicken' %>Buffalo Chicken</label>
     </div>
-    
-    <div class="row panel panel-primary">
-      <div class="panel-heading">CRUST</div>
-        <%= f.radio_button :crust, :none, :checked => true %>
-        <%= f.label :crust_none, "Normal" %>
-        
-        <%= f.radio_button :crust, :stuffed %>
-        <%= f.label :crust_stuffed, "Crust_Stuffed" %>
+  </div>
+
+  <div class="row panel panel-primary">
+    <div class="panel-heading">CRUST</div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+      <%= image_tag "type/None.jpeg", :class => "img-responsive img-rounded" %>
+      <%= f.radio_button :crust, :none, :checked => true %>
+      <%= f.label :crust_none, "Normal" %>
     </div>
-    
-    <div class="row">
-      <%= f.submit "Add Current Pizza to Order", class: "btn btn-primary" %>
+
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+      <%= image_tag "type/Crust.jpeg", :class => "img-responsive img-rounded" %>
+      <%= f.radio_button :crust, :stuffed %>
+      <%= f.label :crust_stuffed, "Stuffed Crust" %>
     </div>
+  </div>
+    
+  <div class="row">
+    <%= f.submit "Add Current Pizza to Order", class: "btn btn-primary" %>
+  </div>
 <% end %>
 
 <% if @order.pizzas.count > 0 %>
