@@ -13,9 +13,9 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     if current_user.admin?
-      @orders = Order.all.paginate(page: params[:page])
+      @orders = Order.all.paginate(page: params[:page], :per_page => 5)
     else
-      @orders = @user.orders.paginate(page: params[:page])
+      @orders = @user.orders.paginate(page: params[:page], :per_page => 5)
     end
   end
 

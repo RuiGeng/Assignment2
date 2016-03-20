@@ -2,13 +2,28 @@
   <span class="content">
     Order ID:<%= order.id %>
   </span>
+  <span class="content">
+    Customer First Name:<%= order.first_name %>
+  </span>
+  <span class="content">
+    Customer Last Name:<%= order.last_name %>
+  </span>
+  <span class="content">
+    Customer Phone Number:<%= order.phone_number %>
+  </span>
+  <% if order.is_dilivery? %>
+   <span class="content">
+     <p class="text-success">This Order Was Completed</p>
+   </span>
+  <% end %>
+
   <span class="timestamp">
     Created <%= time_ago_in_words(order.created_at) %> ago.
   </span>
   <span class="order"><%= link_to 'Show Order', order %></span> |
 
   <% if current_user.admin? %>
-    <span class="order"><%= link_to 'Edit Order', order %></span> |
+    <span class="order"><%= link_to 'Edit Order', edit_order_path(order) %></span> |
     <span class="order"><%= link_to 'Destroy Order', order, method: :delete, data: { confirm: 'Are you sure?' } %></span>
   <% end %>
 </li>

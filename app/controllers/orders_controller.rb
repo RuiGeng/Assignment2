@@ -1,13 +1,13 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :destroy]
+  before_action :set_order, only: [:show, :destroy, :edit, :update]
   before_action :set_pizza, only: [:show, :destroy]
-  # GET /order/new
+
   def new
      @order = Order.new
   end
   
   def show
-     @pizzas = @order.pizzas.paginate(page: params[:page])
+     @pizzas = @order.pizzas.paginate(page: params[:page], :per_page => 5)
   end
   
   def create
@@ -21,16 +21,13 @@ class OrdersController < ApplicationController
     end
   end
   
-  # GET /users/1/edit
   def edit
   end
   
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to users_path, notice: 'User was successfully updated.' }
+      if @order.update(order_params)
+        format.html { redirect_to user_path(current_user.id), notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -40,8 +37,6 @@ class OrdersController < ApplicationController
   end
 
 
-  # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     @order.destroy
     respond_to do |format|
@@ -62,6 +57,6 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:first_name, :last_name, :phone_number, 
                                     :email, :address_line1, :address_line2,
-                                    :province, :city, :postal_code, :user_id)
+                                    :province, :city, :postal_code, :is_dilivery, :user_id)
     end
 end

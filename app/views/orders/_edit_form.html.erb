@@ -57,8 +57,17 @@
            </div>
       </fieldset>
 
+      <% if current_user.admin? %>
+        <fieldset class="form-group">      
+          <div class="field">
+            <%= f.check_box :is_dilivery%>
+            <%= f.label :complete %>
+          </div>
+        </fieldset>
+      <% end %>
+    
       <div class="actions">
-        <%= f.submit "Continue to Order Pizza", class: "btn btn-primary" %>
+        <%= f.submit class: "btn btn-primary" %>
       </div>
     <% end %>
 </div>

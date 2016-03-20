@@ -1,6 +1,8 @@
 <%= form_for [@order, @pizza] do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     
+    <h3>You have ordered <%= @order.pizzas.count %> pizza</h3>
+    
     <div class="row panel panel-primary">
       <div class="panel-heading">PIZZA</div>
       <%= f.radio_button :pizza_type, 'Original', :checked => true %>
@@ -74,5 +76,5 @@
 <% end %>
 
 <div class="row">
-  <%= button_to "Go To Pay Order", order_path(@order.id), :class => "btn btn-primary", :method=> :get %>
+  <%= button_to "Go To Pay Order", order_path(@order.id), :class => "btn btn-success", :method=> :get %>
 </div>
