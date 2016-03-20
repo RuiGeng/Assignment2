@@ -10,9 +10,9 @@ class CreateOrders < ActiveRecord::Migration
       t.string :province, null: false, default: ""
       t.string :city, null: false, default: ""
       t.string :postal_code, null: false, default: ""
-      t.decimal :subtotal, null: false, default: 0
+      t.decimal :subtotal, null: false, precision: 10, scale: 2, default: 0
       t.float :tax, null: false, default: 1.13
-      t.decimal :total, null: false, default: 0
+      t.decimal :total, null: false, precision: 10, scale: 2, default: 0
       t.references :user, null: false, index: true, foreign_key: true
 
       t.timestamps null: false

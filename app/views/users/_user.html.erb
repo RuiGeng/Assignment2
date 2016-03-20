@@ -1,12 +1,12 @@
 <li id="order-<%= user.id %>">
   <span class="content">
-    User ID:<%= user.id %>
+    <strong>User ID: </strong><%= user.id %>
   </span>
   <span class="content">
-    User Name:<%= user.name %>
+    <strong>User Name: </strong><%= user.name %>
   </span>
   <span class="content">
-    User Email:<%= user.email %>
+    <strong>User Email: </strong><%= user.email %>
   </span>
   <span class="timestamp">
     Created <%= time_ago_in_words(user.created_at) %> ago.

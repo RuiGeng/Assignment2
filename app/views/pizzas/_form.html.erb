@@ -75,6 +75,8 @@
     </div>
 <% end %>
 
-<div class="row">
-  <%= button_to "Go To Pay Order", order_path(@order.id), :class => "btn btn-success", :method=> :get %>
-</div>
+<% if @order.pizzas.count > 0 %>
+  <div class="row">
+    <%= button_to "Go To Pay Order", order_path(@order.id), :class => "btn btn-success", :method=> :get %>
+  </div>
+<% end %>

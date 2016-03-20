@@ -1,19 +1,19 @@
 <li id="order-<%= order.id %>">
   <span class="content">
-    Order ID:<%= order.id %>
+    <strong>Order ID: </strong><%= order.id %>
   </span>
   <span class="content">
-    Customer First Name:<%= order.first_name %>
+    <strong>Customer First Name: </strong><%= order.first_name %>
   </span>
   <span class="content">
-    Customer Last Name:<%= order.last_name %>
+    <strong>Customer Last Name: </strong><%= order.last_name %>
   </span>
   <span class="content">
-    Customer Phone Number:<%= order.phone_number %>
+    <strong>Customer Phone Number: </strong><%= order.phone_number %>
   </span>
   <% if order.is_dilivery? %>
    <span class="content">
-     <p class="text-success">This Order Was Completed</p>
+     <p class="text-success"><strong>This Order Was Completed</strong></p>
    </span>
   <% end %>
 
