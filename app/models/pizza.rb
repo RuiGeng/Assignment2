@@ -11,7 +11,7 @@ class Pizza < ActiveRecord::Base
   
   validates :pizza_size, presence: true, length: { maximum: 25 }
 
-  validates :toppings, presence: true, length: { maximum: 254 }
+  #validates :toppings, presence: true, length: { maximum: 254 }
   
   validates :crust, presence: true, length: { maximum: 254 }
   

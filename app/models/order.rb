@@ -9,7 +9,7 @@ class Order < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_POSTALCODE_REGEX = /[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]/
   validates :user_id, presence: true
-  
+
   validates :first_name, presence: true, length: { maximum: 25 }
   
   validates :last_name, presence: true, length: { maximum: 25 }

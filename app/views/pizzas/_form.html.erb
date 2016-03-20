@@ -3,7 +3,7 @@
     
     <div class="row panel panel-primary">
       <div class="panel-heading">PIZZA</div>
-      <%= f.radio_button :pizza_type, 'Original'  %>
+      <%= f.radio_button :pizza_type, 'Original', :checked => true %>
       <%= f.label :pizza_type_original, "Original Pizza" %>
 
       <%= f.radio_button :pizza_type, 'California'  %> 
@@ -18,7 +18,7 @@
     
     <div class="row panel panel-primary">
       <div class="panel-heading">SIZE</div>
-      <%= f.radio_button :pizza_size, "Small"  %>
+      <%= f.radio_button :pizza_size, "Small", :checked => true  %>
       <%= f.label :pizza_size_small, "Small" %>
       
       <%= f.radio_button :pizza_size, "Medium"  %> 
@@ -61,7 +61,7 @@
     
     <div class="row panel panel-primary">
       <div class="panel-heading">CRUST</div>
-        <%= f.radio_button :crust, :none %>
+        <%= f.radio_button :crust, :none, :checked => true %>
         <%= f.label :crust_none, "Normal" %>
         
         <%= f.radio_button :crust, :stuffed %>
@@ -74,5 +74,5 @@
 <% end %>
 
 <div class="row">
-  <%= button_to "Finish the Order", order_path(@order.id), :class => "btn btn-primary", :method=> :get %>
+  <%= button_to "Go To Pay Order", order_path(@order.id), :class => "btn btn-primary", :method=> :get %>
 </div>

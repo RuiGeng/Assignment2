@@ -9,6 +9,6 @@
 
   <% if current_user.admin? %>
     <span class="order"><%= link_to 'Edit Order', order %></span> |
-    <span class="order"><%= link_to 'Destroy Order', order %></span>
+    <span class="order"><%= link_to 'Destroy Order', order, method: :delete, data: { confirm: 'Are you sure?' } %></span>
   <% end %>
 </li>

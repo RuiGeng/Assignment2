@@ -12,13 +12,12 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @orders = @user.orders.paginate(page: params[:page])
+    if current_user.admin?
+      @orders = Order.all.paginate(page: params[:page])
+    else
+      @orders = @user.orders.paginate(page: params[:page])
+    end
   end
-
-  # # GET /users/new
-  # def new
-  #   @user = User.new
-  # end
 
   # GET /users/1/edit
   def edit

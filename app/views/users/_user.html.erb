@@ -11,7 +11,6 @@
   <span class="timestamp">
     Created <%= time_ago_in_words(user.created_at) %> ago.
   </span>
-  <span class="order"><%= link_to 'Show', user %></span> |
   <span class="order"><%= link_to 'Edit', edit_user_path(user) %></span> |
   <span class="order"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></span>
 </li>

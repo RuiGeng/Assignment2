@@ -11,7 +11,7 @@
   </aside>
   <div class="col-md-8">
     <% if @user.orders.any? %>
-      <h3>Orders (<%= @user.orders.count %>)</h3>
+      <h3>Orders (<%= @orders.count %>)</h3>
       <ol class="orders">
       <%= render @orders %>
       </ol>
