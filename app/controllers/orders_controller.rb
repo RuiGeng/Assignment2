@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  # Create by Rui Geng
   before_action :set_order, only: [:show, :destroy, :edit, :update]
   before_action :set_pizza, only: [:show, :destroy]
 

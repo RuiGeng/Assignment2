@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
+  # Create by Rui Geng
   belongs_to :user
   has_many :pizzas, dependent: :destroy
   before_save :get_taxrate

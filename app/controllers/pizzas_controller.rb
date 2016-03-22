@@ -1,4 +1,5 @@
 class PizzasController < ApplicationController
+  # Create by Rui Geng
   before_action :set_order, only: [:create, :new, :finsh]
   before_action :set_pizza, only: [:show]
   

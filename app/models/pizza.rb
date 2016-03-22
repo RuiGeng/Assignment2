@@ -1,4 +1,5 @@
 class Pizza < ActiveRecord::Base
+  # Create by Rui Geng
   belongs_to :order
   before_save :format_toppings, :get_size_price, :get_toppings_price, :get_crust_price, :get_total_price
   after_save :update_order_subtotal

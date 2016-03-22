@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  # Create by Rui Geng
   has_many :orders, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
