@@ -3,6 +3,7 @@
  
  <div class="container">
    <div class="row">
+    <div class="col-md-6 col-md-offset-3">
      <% if @order.pizzas.any? %>
        <h3>Pizza (<%= @order.pizzas.count %>)</h3>
        <ol class="orders">
@@ -10,11 +11,13 @@
        </ol>
        <%= will_paginate @pizzas %>
      <% end %>
+    </div>
    </div>
  </div>
  
  <div class="container">
   <div class="row">
+   <div class="col-md-6 col-md-offset-3">
    <h3>Delivery Information</h3>
     <address>
      <strong>First Name: </strong><%= @order.first_name %><br>
@@ -27,17 +30,25 @@
      <strong>City: </strong><%= @order.city %><br>
      <strong>Postal Code: </strong><%= @order.postal_code %><br>
     </address>
+    </div>
   </div>
  </div>
  <div class="container">
    <div class="row">
+    <div class="col-md-6 col-md-offset-3">
     <h3>Pirce Information</h3>
      <strong>Subtotal: </strong><%= @order.subtotal %><br>
      <strong>Tax: </strong><%= @order.tax %><br>
      <strong>Total: </strong><%= @order.total %><br>
+     </div>
    </div>
  </div>
-
-<span><%= link_to "Back", :back %></span> | 
-<span><%= link_to "Finish", root_url %></span>
+ <div class="container">
+   <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+     <span><%= link_to "Back", :back %></span> | 
+     <span><%= link_to "Finish", root_url %></span>
+    </div>
+   </div>
+ </div>
 </div>
