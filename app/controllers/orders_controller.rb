@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   # Create by Rui Geng
+  before_action :is_admin, only: [:destroy, :edit, :update]
   before_action :set_order, only: [:show, :destroy, :edit, :update]
   before_action :set_pizza, only: [:show, :destroy]
 
@@ -53,6 +54,12 @@ class OrdersController < ApplicationController
     
     def set_pizza
       @pizzas = Pizza.where(order_id: params[:id])
+    end
+    
+    def is_admin
+      if !current_user.admin
+        redirect_to root_url
+      end
     end
   
     def order_params
