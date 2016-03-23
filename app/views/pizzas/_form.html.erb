@@ -1,7 +1,6 @@
 <%= form_for [@order, @pizza] do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  
-  <h3>You have ordered <%= @order.pizzas.count %> pizza</h3>
+    <h3>You have ordered <%= @order.pizzas.count %> pizza</h3>
     <div class="row panel panel-primary">
       <div class="panel-heading">PIZZA</div>
         <div class="col-lg-6 col-md-6 col-sm-6">

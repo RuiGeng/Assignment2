@@ -1,73 +1,73 @@
 <div class="row">
-    <%= form_for(@order) do |f| %>
-     
-      <%= render 'shared/error_messages', object: f.object %>
-      
-      <fieldset class="form-group">
-        <legend>Delivery Contact</legend>
-        <div class="form-group row">
-           <div class="form-group col-lg-6 col-md-6 col-sm-6">
-             <%= f.label :first_name %><br>
-             <%= f.text_field :first_name, class: "form-control" %>
-           </div>
-           
-           <div class="form-group col-lg-6 col-md-6 col-sm-6">
-             <%= f.label :last_name %><br>
-             <%= f.text_field :last_name, class: "form-control" %>
-           </div>
-           
-           <div class="form-group col-lg-6 col-md-6 col-sm-6">
-             <%= f.label :phone_number %><br>
-             <%= f.telephone_field :phone_number, class: "form-control" %>
-           </div>
-           
-           <div class="form-group col-lg-6 col-md-6 col-sm-6">
-             <%= f.label :email %><br>
-             <%= f.email_field :email, class: "form-control" %>
-           </div>
-      </fieldset>
-      
-      <fieldset class="form-group">
-        <legend>Delivery Address</legend>
-        <div class="form-group row">
-           <div class="form-group col-lg-6 col-md-6 col-sm-6">
-             <%= f.label :address_line1 %><br>
-             <%= f.text_field :address_line1, class: "form-control" %>
-           </div>
-           
-           <div class="form-group col-lg-6 col-md-6 col-sm-6">
-             <%= f.label :address_line2 %><br>
-             <%= f.text_field :address_line2, class: "form-control" %>
-           </div>
-           
-           <div class="form-group col-lg-4 col-md-4 col-sm-4">
-             <%= f.label :province %><br>
-             <%= f.select( :province, options_for_select([['Ontario', "ontario"], ['Quebec',  "quebec"],
-                                       ['Manitoba',  "manitoba"], ['Saskatchewan',  "saskatchewan"]]), {}, {class: "form-control"}) %>
-           </div>
-           
-           <div class="form-group col-lg-4 col-md-4 col-sm-4">
-             <%= f.label :city %><br>
-             <%= f.text_field :city, class: "form-control" %>
-           </div>
-           
-           <div class="form-group col-lg-4 col-md-4 col-sm-4">
-             <%= f.label :postal_code %><br>
-             <%= f.text_field :postal_code, class: "form-control" %>
-           </div>
-      </fieldset>
-
-      <% if current_user.admin? %>
-        <fieldset class="form-group">      
-          <div class="field">
-            <%= f.check_box :is_dilivery%>
-            <%= f.label :complete %>
-          </div>
-        </fieldset>
-      <% end %>
+  <%= form_for(@order) do |f| %>
+   
+    <%= render 'shared/error_messages', object: f.object %>
     
-      <div class="actions">
-        <%= f.submit class: "btn btn-primary" %>
-      </div>
+    <fieldset class="form-group">
+      <legend>Delivery Contact</legend>
+      <div class="form-group row">
+         <div class="form-group col-lg-6 col-md-6 col-sm-6">
+           <%= f.label :first_name %><br>
+           <%= f.text_field :first_name, class: "form-control" %>
+         </div>
+         
+         <div class="form-group col-lg-6 col-md-6 col-sm-6">
+           <%= f.label :last_name %><br>
+           <%= f.text_field :last_name, class: "form-control" %>
+         </div>
+         
+         <div class="form-group col-lg-6 col-md-6 col-sm-6">
+           <%= f.label :phone_number %><br>
+           <%= f.telephone_field :phone_number, class: "form-control" %>
+         </div>
+         
+         <div class="form-group col-lg-6 col-md-6 col-sm-6">
+           <%= f.label :email %><br>
+           <%= f.email_field :email, class: "form-control" %>
+         </div>
+    </fieldset>
+    
+    <fieldset class="form-group">
+      <legend>Delivery Address</legend>
+      <div class="form-group row">
+         <div class="form-group col-lg-6 col-md-6 col-sm-6">
+           <%= f.label :address_line1 %><br>
+           <%= f.text_field :address_line1, class: "form-control" %>
+         </div>
+         
+         <div class="form-group col-lg-6 col-md-6 col-sm-6">
+           <%= f.label :address_line2 %><br>
+           <%= f.text_field :address_line2, class: "form-control" %>
+         </div>
+         
+         <div class="form-group col-lg-4 col-md-4 col-sm-4">
+           <%= f.label :province %><br>
+           <%= f.select( :province, options_for_select([['Ontario', "ontario"], ['Quebec',  "quebec"],
+                                     ['Manitoba',  "manitoba"], ['Saskatchewan',  "saskatchewan"]]), {}, {class: "form-control"}) %>
+         </div>
+         
+         <div class="form-group col-lg-4 col-md-4 col-sm-4">
+           <%= f.label :city %><br>
+           <%= f.text_field :city, class: "form-control" %>
+         </div>
+         
+         <div class="form-group col-lg-4 col-md-4 col-sm-4">
+           <%= f.label :postal_code %><br>
+           <%= f.text_field :postal_code, class: "form-control" %>
+         </div>
+    </fieldset>
+
+    <% if current_user.admin? %>
+      <fieldset class="form-group">      
+        <div class="field">
+          <%= f.check_box :is_dilivery%>
+          <%= f.label :complete %>
+        </div>
+      </fieldset>
     <% end %>
+  
+    <div class="actions">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  <% end %>
 </div>
