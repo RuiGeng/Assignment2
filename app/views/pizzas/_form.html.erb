@@ -1,3 +1,4 @@
+<div class = "row">
 <%= form_for [@order, @pizza] do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
     <h3>Your Shopping Cart <span class="label label-default"><%= @order.pizzas.count %></span> Pizzas</h3>
@@ -125,3 +126,4 @@
     <%= button_to "Go To Pay Order", order_path(@order.id), :class => "btn btn-success", :method=> :get %>
   </div>
 <% end %>
+</div>
