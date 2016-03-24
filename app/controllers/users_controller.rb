@@ -1,14 +1,13 @@
 class UsersController < ApplicationController
   # Create by Rui Geng
   before_action :is_admin, only: [:index]
-  #before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.paginate(:page => params[:page])
+    @users = User.all.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /users/1

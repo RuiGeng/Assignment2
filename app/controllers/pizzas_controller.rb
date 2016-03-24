@@ -1,6 +1,6 @@
 class PizzasController < ApplicationController
   # Create by Rui Geng
-  before_action :set_order, only: [:create, :new, :finsh]
+  before_action :set_order, only: [:create, :new]
   before_action :set_pizza, only: [:show]
   
   def new
@@ -31,7 +31,7 @@ class PizzasController < ApplicationController
     def set_order
       @order = Order.find(params[:order_id])
       rescue ActiveRecord::RecordNotFound
-        flash[:notice] = "Pleae Create an Order first!"
+        flash[:alert] = "Pleae Create an Order first!"
         redirect_to new_order_path
     end  
     
