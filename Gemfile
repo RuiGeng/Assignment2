@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails',                '4.2.2'
 
@@ -10,10 +9,13 @@ gem 'will_paginate',           '3.0.7'
 
 gem 'bootstrap-will_paginate', '0.0.10'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-# Use mysql3
-gem 'mysql2', '~> 0.3.20'
+# # Use sqlite3 as the database for Active Record
+# gem 'sqlite3'
+# # Use mysql3
+# gem 'mysql2', '~> 0.3.20'
+
+gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '5.0.2'
 # Use Uglifier as compressor for JavaScript assets
@@ -53,5 +55,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  
 end
+
+gem 'rails_12factor', group: :production
 
